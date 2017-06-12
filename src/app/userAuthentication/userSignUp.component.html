@@ -1,0 +1,26 @@
+<md-card class="allMdCards">
+  <md-card-header>
+    <md-card-title><h2>Sign Up</h2></md-card-title>
+  </md-card-header>
+
+  <md-card-content>
+    <form #userSignUpForm="ngForm" (ngSubmit)="addUser()">
+      <md-input-container>
+        <input mdInput type="email" name="email" [(ngModel)]="userEmail" placeholder="Email" />
+      </md-input-container>
+      <br><br>
+      <md-input-container>
+        <input mdInput type="password" name="password" [(ngModel)]="userPassword" placeholder="Password" />
+      </md-input-container>
+      <div *ngIf="feedbackMessage">{{feedbackMessage}}</div>
+      <md-card-actions>
+        <button type="submit" [disabled]="!userSignUpForm.valid" md-raised-button color="primary">Sign Up!</button>
+      </md-card-actions>
+    </form>
+
+  </md-card-content>
+
+  <md-card-footer>
+    <a routerLink="/signIn" md-button color="primary">Already have an Account!?</a>
+  </md-card-footer>
+</md-card>

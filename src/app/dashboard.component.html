@@ -1,0 +1,14 @@
+<md-card class="allMdCards">
+  <md-card-header>
+    <md-card-title><h2>Dashboard</h2></md-card-title>
+    <md-card-subtitle>Top Heroes</md-card-subtitle>
+  </md-card-header>
+  <br>
+  <md-card-content>
+    <md-card-actions>
+      <a color="primary" *ngFor="let thisHero of topHeroes"  [routerLink] ="['/heroDetail', thisHero.$key]" md-button>
+        {{thisHero.name}}
+      </a>
+    </md-card-actions>
+  </md-card-content>
+</md-card>

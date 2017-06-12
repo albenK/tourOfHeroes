@@ -1,0 +1,21 @@
+
+<div *ngIf="theHero">
+  <md-card class="allMdCards">
+    <md-card-header>
+      <md-card-title>{{theHero.name || "???"}} details!</md-card-title>
+      <md-card-subtitle>ID: {{theHero.$key}}</md-card-subtitle>
+    </md-card-header>
+    <br>
+    <md-card-content>
+      <md-input-container>
+
+        <input mdInput type="text" placeholder="Hero name" [(ngModel)]="theHero.name"/>
+      </md-input-container>
+      <button (click)="updateNameOfHero()" [disabled] = "inputValueIsInvalid()" md-raised-button color="primary">Update Name</button>
+      <h3 *ngIf="feedbackMessage">{{feedbackMessage}}</h3>
+      <md-card-actions>
+        <button (click)="goBack()" md-raised-button color="primary">Go Back</button>
+      </md-card-actions>
+    </md-card-content>
+  </md-card>
+</div>

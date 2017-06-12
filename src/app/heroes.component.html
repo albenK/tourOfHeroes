@@ -1,0 +1,29 @@
+<md-card class="allMdCards">
+  
+  <md-menu #menu="mdMenu">
+    <button (click)="toggleMenuOptions()" md-menu-item>{{usersOptionForMenu}}</button>
+    <button (click)="deleteAllHeroes()" md-menu-item>Delete All</button>
+  </md-menu>
+  <button  md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-input-container>
+    <input mdInput type="text" [(ngModel)] = "newHeroName" placeholder="Type in a Hero name"/>
+  </md-input-container>
+  <button (click)="addNewHero();" [disabled]="userInputIsInvalid()" md-raised-button color="primary">Add Hero</button>
+  <div *ngIf="feedbackMessage">{{feedbackMessage}}</div>
+  <md-card-header>
+  <br>
+  <md-card-title><h2>Heroes</h2></md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let thisHero of ourHeroes">
+        <button (click)="goToHeroDetail(thisHero)" md-button color="primary">{{thisHero.name}}</button>
+        <button (click)="deleteHero(thisHero)" *ngIf="userWantsToDelete" md-icon-button>
+          <md-icon svgIcon="delete"></md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
